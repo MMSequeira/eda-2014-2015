@@ -2,7 +2,7 @@ package pt.europeia.eda.java_slides.presentation01;
 
 public class GcdTester {
 
-    // Precondition: either m ≠ 0 or n ≠ 0.
+    // Precondition: m ≥ 0 and n ≥ 0 and either m ≠ 0 or n ≠ 0.
     public static int gcd(int m, int n) {
         while (m != 0) {
             final int temporary = m;
