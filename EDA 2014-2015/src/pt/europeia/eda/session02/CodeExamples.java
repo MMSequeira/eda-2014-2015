@@ -3,6 +3,7 @@ package pt.europeia.eda.session02;
 import static java.lang.System.out;
 
 public class CodeExamples {
+    
 	public static void main(String[] args) {
 		example1();
 		example2();
@@ -39,4 +40,5 @@ public class CodeExamples {
 		final int[] values = new int[] {1, 3, 9, 27, 81};
 		out.println("values[2]: " + values[2]);
 	}
+	
 }

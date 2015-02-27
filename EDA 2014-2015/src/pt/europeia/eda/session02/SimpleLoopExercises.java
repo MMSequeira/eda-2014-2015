@@ -6,6 +6,7 @@ import static java.lang.System.out;
 import java.util.Scanner;
 
 public class SimpleLoopExercises {
+    
 	public static Scanner inputScanner = new Scanner(in);
 
 	public static void main(String[] args) {
@@ -70,4 +71,5 @@ public class SimpleLoopExercises {
 		else
 			out.println("Found in position " + (i + 1));
 	}
+	
 }
