@@ -1,7 +1,7 @@
-package pt.europeia.eda.java_slides.presentation02;
+package pt.europeia.eda.java_slides.presentation05;
 
 import static java.lang.System.out;
-import static pt.europeia.eda.java_slides.presentation02.IntArrayUtilities.*;
+import static pt.europeia.eda.java_slides.presentation05.IntArrayUtilities.*;
 
 public class IntArrayUtilitiesTester {
 
