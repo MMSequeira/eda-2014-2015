@@ -5,8 +5,7 @@ import java.util.Arrays;
 public final class IntArrayUtilities {
 
     private IntArrayUtilities() {
-        throw new RuntimeException("Attempt to instantiate " + 
-                                   "package-class");
+        throw new RuntimeException("Attempt to instantiate package-class");
     }
 
     public static int maximumOf(final int[] array) {
