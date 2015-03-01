@@ -21,16 +21,20 @@ public class Numbers {
         return number * number;
     }
 
-    public static boolean isPrime(final int number) {
-        if (number == 1)
+    public static boolean isPrime(final int number) {       
+        if (number != 2 && number % 2 == 0)
             return false;
 
-        for (int divisor = 2; divisor < number; divisor++)
+        for (int divisor = 3; divisor <= Math.sqrt(number); divisor += 2)
             if (number % divisor == 0)
-                return false;
+            return false;
+
+        if (number == 1)
+            return false;
+            
         return true;
     }
-
+    
     public static boolean isPrime(final int number,
             final ArrayList<Integer> primes) {
         if (number == 1)
