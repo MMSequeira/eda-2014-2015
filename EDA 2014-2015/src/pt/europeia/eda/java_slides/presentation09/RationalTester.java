@@ -28,7 +28,6 @@ public class RationalTester {
         out.println("r2 is " + r2);
         out.println("r3 is " + r3);
         out.println("string is " + string);
-        
     }
 
 }
