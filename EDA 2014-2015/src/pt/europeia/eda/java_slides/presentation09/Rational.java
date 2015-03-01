@@ -11,17 +11,17 @@ public class Rational {
         this.denominator = denominator;
     }
 
-    private int denominator() {
+    private int getDenominator() {
         return denominator;
     }
 
-    private int numerator() {
+    private int getNumerator() {
         return numerator;
     }
 
     public Rational multipliedBy(final Rational rational) {
-        return new Rational(numerator() * rational.numerator(), denominator()
-                * rational.denominator());
+        return new Rational(getNumerator() * rational.getNumerator(), getDenominator()
+                * rational.getDenominator());
     }
 
     @Override
