@@ -9,32 +9,34 @@ public class Numbers {
     public static void main(final String[] arguments) {
         out.println(primesUpTo(1000));
         out.println("isPrime(1) = " + isPrime(1));
-        out.println("isPrime(1, new ArrayList<Integer>()) = " + isPrime(1, new ArrayList<Integer>()));
+        out.println("isPrime(1, new ArrayList<Integer>()) = "
+                + isPrime(1, new ArrayList<Integer>()));
     }
 
     public static boolean isEven(final int number) {
         return number % 2 == 0;
     }
-    
+
     public static int squareOf(final int number) {
         return number * number;
     }
-    
+
     public static boolean isPrime(final int number) {
         if (number == 1)
             return false;
-        
+
         for (int divisor = 2; divisor < number; divisor++)
             if (number % divisor == 0)
                 return false;
         return true;
     }
-    
-    public static boolean isPrime(final int number, final ArrayList<Integer> primes) {
+
+    public static boolean isPrime(final int number,
+            final ArrayList<Integer> primes) {
         if (number == 1)
             return false;
-    
-        for (int i = 0; i != primes.size() && squareOf(primes.get(i)) <= number ; i++)
+
+        for (int i = 0; i != primes.size() && squareOf(primes.get(i)) <= number; i++)
             if (number % primes.get(i) == 0)
                 return false;
         return true;
@@ -54,5 +56,5 @@ public class Numbers {
 
         return primes;
     }
-    
+
 }
