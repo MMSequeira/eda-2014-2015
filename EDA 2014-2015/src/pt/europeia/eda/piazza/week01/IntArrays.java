@@ -1,9 +1,5 @@
 package pt.europeia.eda.piazza.week01;
 
-import static java.lang.System.out;
-
-import java.util.Arrays;
-
 public class IntArrays {
 
     public static void swap(final int[] numbers, final int i, final int j) {
