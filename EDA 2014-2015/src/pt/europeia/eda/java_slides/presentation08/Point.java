@@ -1,6 +1,7 @@
 package pt.europeia.eda.java_slides.presentation08;
 
 public class Point {
+    
     private double x;
     private double y;
 
@@ -23,4 +24,5 @@ public class Point {
     }
 
     // …
+    
 }

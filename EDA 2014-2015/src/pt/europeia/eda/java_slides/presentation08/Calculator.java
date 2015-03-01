@@ -1,6 +1,7 @@
 package pt.europeia.eda.java_slides.presentation08;
 
 public class Calculator {
+
     private double value;
 
     public Calculator() {
@@ -24,4 +25,5 @@ public class Calculator {
     }
 
     // …
+
 }
