@@ -38,6 +38,19 @@ public class IntArraysTester {
                 + Arrays.toString(fusionOf(noNumbers, numbers2)));
         out.println("fusionOf(numbers1, numbers2) is "
                 + Arrays.toString(fusionOf(numbers1, numbers2)));
+
+        out.println("thereAreDuplicatesIn(new int[] { 1, 1, 1 }) is "
+                + thereAreDuplicatesIn(new int[] { 1, 1, 1 }));
+        out.println("thereAreDuplicatesIn(new int[] { 1, 2, 1 }) is "
+                + thereAreDuplicatesIn(new int[] { 1, 2, 1 }));
+        out.println("thereAreDuplicatesIn(new int[] { 1, 2, 3 }) is "
+                + thereAreDuplicatesIn(new int[] { 1, 2, 3 }));
+        out.println("thereAreDuplicatesIn(new int[] { 1, 1 }) is "
+                + thereAreDuplicatesIn(new int[] { 1, 1 }));
+        out.println("thereAreDuplicatesIn(new int[] { 1 }) is "
+                + thereAreDuplicatesIn(new int[] { 1 }));
+        out.println("thereAreDuplicatesIn(new int[] {}) is "
+                + thereAreDuplicatesIn(new int[] {}));
     }
 
 }
