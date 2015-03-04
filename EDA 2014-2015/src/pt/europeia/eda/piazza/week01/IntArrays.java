@@ -25,7 +25,8 @@ public class IntArrays {
 
     public static int[] fusionOf(final int[] someNumbers,
             final int[] someOtherNumbers) {
-        final int[] fusion = new int[someNumbers.length + someOtherNumbers.length];
+        final int[] fusion = new int[someNumbers.length
+                + someOtherNumbers.length];
         int i = 0;
         int j = 0;
         int k = 0;
@@ -46,14 +47,26 @@ public class IntArrays {
 
         return fusion;
     }
-    
+
     // Inefficient solution:
     public static boolean thereAreDuplicatesIn(final int[] numbers) {
         for (int i = 0; i < numbers.length - 1; i++)
             for (int j = i + 1; j < numbers.length; j++)
                 if (numbers[i] == numbers[j])
                     return true;
-            
+
         return false;
     }
+
+    public static int maximumSpanBetweenEqualItemsOf(final int[] numbers) {
+        int maximumSpan = 0;
+
+        for (int i = 0; i + maximumSpan < numbers.length; i++)
+            for (int j = i + maximumSpan; j < numbers.length; j++)
+                if (numbers[i] == numbers[j] && maximumSpan < j - i + 1)
+                    maximumSpan = j - i + 1;
+
+        return maximumSpan;
+    }
+
 }

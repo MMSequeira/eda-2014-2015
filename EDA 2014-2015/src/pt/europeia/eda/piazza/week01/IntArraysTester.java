@@ -7,8 +7,20 @@ import static pt.europeia.eda.piazza.week01.IntArrays.*;
 
 public class IntArraysTester {
 
+    public static void printCall(final String methodName, final int[] argument,
+            final boolean result) {
+        out.println(methodName + "(" + Arrays.toString(argument) + ") is "
+                + result);
+    }
+
+    public static void printCall(final String methodName, final int[] argument,
+            final int result) {
+        out.println(methodName + "(" + Arrays.toString(argument) + ") is "
+                + result);
+    }
+
     public static void main(final String[] arguments) {
-        final int[] numbers = { 1, 2, 3, 4 };
+        int[] numbers = { 1, 2, 3, 4 };
 
         out.println("numbers is " + Arrays.toString(numbers));
         out.println("isNonDecreasing(numbers) is " + isNonDecreasing(numbers));
@@ -17,10 +29,14 @@ public class IntArraysTester {
 
         out.println("numbers is " + Arrays.toString(numbers));
         out.println("isNonDecreasing(numbers) is " + isNonDecreasing(numbers));
-        out.println("isNonDecreasing(new int[] { 1, 1, 1 }) is "
-                + isNonDecreasing(new int[] { 1, 1, 1 }));
-        out.println("isNonDecreasing(new int[] { 1, 2, 1 }) is "
-                + isNonDecreasing(new int[] { 1, 2, 1 }));
+
+        numbers = new int[] { 1, 1, 1 };
+        out.println("numbers is " + Arrays.toString(numbers));
+        out.println("isNonDecreasing(numbers) is " + isNonDecreasing(numbers));
+
+        numbers = new int[] { 1, 2, 1 };
+        out.println("numbers is " + Arrays.toString(numbers));
+        out.println("isNonDecreasing(numbers) is " + isNonDecreasing(numbers));
 
         final int[] noNumbers = new int[] {};
         final int[] numbers1 = new int[] { 10, 13, 20, 24, 100 };
@@ -39,18 +55,57 @@ public class IntArraysTester {
         out.println("fusionOf(numbers1, numbers2) is "
                 + Arrays.toString(fusionOf(numbers1, numbers2)));
 
-        out.println("thereAreDuplicatesIn(new int[] { 1, 1, 1 }) is "
-                + thereAreDuplicatesIn(new int[] { 1, 1, 1 }));
-        out.println("thereAreDuplicatesIn(new int[] { 1, 2, 1 }) is "
-                + thereAreDuplicatesIn(new int[] { 1, 2, 1 }));
-        out.println("thereAreDuplicatesIn(new int[] { 1, 2, 3 }) is "
-                + thereAreDuplicatesIn(new int[] { 1, 2, 3 }));
-        out.println("thereAreDuplicatesIn(new int[] { 1, 1 }) is "
-                + thereAreDuplicatesIn(new int[] { 1, 1 }));
-        out.println("thereAreDuplicatesIn(new int[] { 1 }) is "
-                + thereAreDuplicatesIn(new int[] { 1 }));
-        out.println("thereAreDuplicatesIn(new int[] {}) is "
-                + thereAreDuplicatesIn(new int[] {}));
-    }
+        numbers = new int[] { 1, 1, 1 };
+        printCall("thereAreDuplicatesIn", numbers,
+                thereAreDuplicatesIn(numbers));
+        numbers = new int[] { 1, 2, 1 };
+        printCall("thereAreDuplicatesIn", numbers,
+                thereAreDuplicatesIn(numbers));
+        numbers = new int[] { 1, 2, 3 };
+        printCall("thereAreDuplicatesIn", numbers,
+                thereAreDuplicatesIn(numbers));
+        numbers = new int[] { 1, 1 };
+        printCall("thereAreDuplicatesIn", numbers,
+                thereAreDuplicatesIn(numbers));
+        numbers = new int[] { 1 };
+        printCall("thereAreDuplicatesIn", numbers,
+                thereAreDuplicatesIn(numbers));
+        numbers = new int[] {};
+        printCall("thereAreDuplicatesIn", numbers,
+                thereAreDuplicatesIn(numbers));
 
+        numbers = new int[] {};
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 2, 3 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 2, 2 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 2, 3, 2, 3, 2 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 5, 1, 2, 5, 3, 2, 3, 2 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 2, 3, 4, 5, 1, 7, 8, 9 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 1, 3, 4, 5, 6, 7, 8, 9 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 2, 1, 4, 5, 6, 7, 8, 8 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+        numbers = new int[] { 1, 1, 3, 4, 5, 6, 7, 8, 7 };
+        printCall("maximumSpanBetweenEqualItemsOf", numbers,
+                maximumSpanBetweenEqualItemsOf(numbers));
+    }
 }
