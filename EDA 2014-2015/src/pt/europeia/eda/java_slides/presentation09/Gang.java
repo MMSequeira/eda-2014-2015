@@ -32,12 +32,12 @@ public class Gang {
         if (members.size() == 0)
             throw new IllegalStateException("Illegal…");
 
-        double smallerHeight = Double.POSITIVE_INFINITY;
+        double smallestHeight = Double.POSITIVE_INFINITY;
         Person shortestMember = null;
         
         for (Person member : members)
-            if (member.getHeight() < smallerHeight) {
-                smallerHeight = member.getHeight();
+            if (member.getHeight() < smallestHeight) {
+                smallestHeight = member.getHeight();
                 shortestMember = member;
             }
    
