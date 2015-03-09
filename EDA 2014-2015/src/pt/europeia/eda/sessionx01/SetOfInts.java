@@ -2,7 +2,7 @@ package pt.europeia.eda.sessionx01;
 
 import java.util.Arrays;
 
-// Class representing a set of ints. A few thing are missing:
+// Class representing a set of ints. A few things are missing:
 // 1. Pre-conditions are not being checked.
 // 2. Set intersection and union are missing.
 // 3. Perhaps this is not the most efficient way to implement a set, right?
