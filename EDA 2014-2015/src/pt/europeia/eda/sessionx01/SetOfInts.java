@@ -113,7 +113,7 @@ public class SetOfInts {
         // Set the new array as the array of set elements:
         elements = newElements;
 
-        // A simples alternative to the above code would be the following:
+        // A simple alternative to the above code would be the following:
         // elements = Arrays.copyOf(elements, newCapacity);
     }
 
