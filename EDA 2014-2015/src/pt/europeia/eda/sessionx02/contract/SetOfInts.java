@@ -16,6 +16,12 @@ public class SetOfInts {
         checkInvariant();
     }
 
+    public boolean isEmpty() {
+        checkInvariant();
+        
+        return cardinality() == 0;
+    }
+
     public int cardinality() {
         checkInvariant();
 
@@ -31,40 +37,89 @@ public class SetOfInts {
     public boolean contains(final int value) {
         checkInvariant();
 
-        if (indexOf(value) != numberOfElements)
-            return true;
-        else
-            return false;
+        return indexOf(value) != numberOfElements;
+    }
 
-        // Non-naive implementation:
-        // return indexOf(value) != numberOfElements;
+    public boolean contains(final SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
+        checkInvariant();
+        anotherSet.checkInvariant();
+        
+        for (int i = 0; i != anotherSet.numberOfElements; i++)
+            if (!contains(anotherSet.elements[i]))
+                return false;
+        return true;
     }
 
     public SetOfInts unionWith(final SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
+        checkInvariant();
+        anotherSet.checkInvariant();
+
         final SetOfInts union = new SetOfInts();
 
         for (int i = 0; i != numberOfElements; i++)
             union.add(elements[i]);
-        
+
         for (int i = 0; i != anotherSet.numberOfElements; i++)
             union.add(anotherSet.elements[i]);
-        
+
+        assert union.contains(this) : "Union must contain each set.";
+        assert union.contains(anotherSet) : "Union must contain each set.";
+
         return union;
-    }
-
-    public SetOfInts intersectionWith(final SetOfInts anotherSet) {
-        final SetOfInts intersection = new SetOfInts();
-
-        for (int i = 0; i != numberOfElements; i++)
-            if (anotherSet.contains(elements[i]))
-                intersection.add(elements[i]);
-                
-        return intersection;
     }
 
     public static SetOfInts unionOf(final SetOfInts oneSet,
             final SetOfInts anotherSet) {
         return oneSet.unionWith(anotherSet);
+    }
+
+    public SetOfInts intersectionWith(final SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
+        checkInvariant();
+        anotherSet.checkInvariant();
+
+        final SetOfInts intersection = new SetOfInts();
+
+        for (int i = 0; i != numberOfElements; i++)
+            if (anotherSet.contains(elements[i]))
+                intersection.add(elements[i]);
+
+        assert this.contains(intersection) : "Both sets must their intersection.";
+        assert anotherSet.contains(intersection) : "Both sets must their intersection.";
+
+        return intersection;
+    }
+
+    public static SetOfInts intersectionOf(final SetOfInts oneSet,
+            final SetOfInts anotherSet) {
+        return oneSet.intersectionWith(anotherSet);
+    }
+
+    public SetOfInts minus(SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
+        checkInvariant();
+        anotherSet.checkInvariant();
+
+        final SetOfInts subtraction = new SetOfInts();
+
+        for (int i = 0; i != numberOfElements; i++)
+            if (!anotherSet.contains(elements[i]))
+                subtraction.add(elements[i]);
+
+        assert subtraction.intersectionWith(anotherSet).isEmpty() : "Subtraction has no common elements with subtracted set.";
+        assert this.contains(subtraction) : "Original set must contain subtraction.";
+
+        return subtraction;
     }
 
     public void add(final int newElement) {
@@ -80,8 +135,9 @@ public class SetOfInts {
 
         numberOfElements++;
 
-        assert contains(newElement) : "After adding an element the set must contain it.";
         checkInvariant();
+
+        assert contains(newElement) : "After adding an element the set must contain it.";
     }
 
     public void remove(final int element) {
@@ -92,15 +148,13 @@ public class SetOfInts {
         if (i == numberOfElements)
             return;
 
-        // for (; i < numberOfElements - 1; i++)
-        // elements[i] = elements[i + 1];
-
         elements[i] = elements[numberOfElements - 1];
 
         numberOfElements--;
 
-        assert !contains(element) : "After removing an element the set must not contain it.";
         checkInvariant();
+
+        assert !contains(element) : "After removing an element the set must not contain it.";
     }
 
     private boolean hasRepeatedElements() {
@@ -131,10 +185,10 @@ public class SetOfInts {
     }
 
     private void checkInvariant() {
-        assert elements != null : "The elements reference cannot be null";
-        assert 0 <= numberOfElements : "Number of elements cannot be negative";
-        assert numberOfElements <= elements.length : "Number of elements must not be larger than the array capacity";
-        assert !hasRepeatedElements() : "The set cannot contain repeated elements";
+        assert elements != null : "The elements reference cannot be null.";
+        assert 0 <= numberOfElements : "Number of elements cannot be negative.";
+        assert numberOfElements <= elements.length : "Number of elements must not be larger than the array capacity.";
+        assert !hasRepeatedElements() : "The set cannot contain repeated elements.";
     }
 
     @Override

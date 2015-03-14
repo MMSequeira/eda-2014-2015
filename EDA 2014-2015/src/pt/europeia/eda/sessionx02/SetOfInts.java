@@ -14,6 +14,10 @@ public class SetOfInts {
         numberOfElements = 0;
     }
 
+    public boolean isEmpty() {
+        return cardinality() == 0;
+    }
+
     public int cardinality() {
         return numberOfElements;
     }
@@ -23,19 +27,68 @@ public class SetOfInts {
     }
 
     public boolean contains(final int value) {
-        // if (indexOf(value) != numberOfElements)
-        // return true;
-        // else
-        // return false;
-
         return indexOf(value) != numberOfElements;
     }
 
     public boolean contains(final SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
         for (int i = 0; i != anotherSet.numberOfElements; i++)
             if (!contains(anotherSet.elements[i]))
                 return false;
         return true;
+    }
+
+    public SetOfInts unionWith(final SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
+        final SetOfInts union = new SetOfInts();
+
+        for (int i = 0; i != numberOfElements; i++)
+            union.add(elements[i]);
+
+        for (int i = 0; i != anotherSet.numberOfElements; i++)
+            union.add(anotherSet.elements[i]);
+
+        return union;
+    }
+
+    public static SetOfInts unionOf(final SetOfInts oneSet,
+            final SetOfInts anotherSet) {
+        return oneSet.unionWith(anotherSet);
+    }
+
+    public SetOfInts intersectionWith(final SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
+        final SetOfInts intersection = new SetOfInts();
+
+        for (int i = 0; i != numberOfElements; i++)
+            if (anotherSet.contains(elements[i]))
+                intersection.add(elements[i]);
+
+        return intersection;
+    }
+
+    public static SetOfInts intersectionOf(final SetOfInts oneSet,
+            final SetOfInts anotherSet) {
+        return oneSet.intersectionWith(anotherSet);
+    }
+
+    public SetOfInts minus(SetOfInts anotherSet) {
+        if (anotherSet == null)
+            throw new NullPointerException("anotherSet cannot be null.");
+
+        final SetOfInts subtraction = new SetOfInts();
+
+        for (int i = 0; i != numberOfElements; i++)
+            if (!anotherSet.contains(elements[i]))
+                subtraction.add(elements[i]);
+
+        return subtraction;
     }
 
     public void add(final int newElement) {
@@ -56,44 +109,9 @@ public class SetOfInts {
         if (i == numberOfElements)
             return;
 
-        // if (i != numberOfElements - 1)
         elements[i] = elements[numberOfElements - 1];
-        // for (; i < numberOfElements - 1; i++)
-        // elements[i] = elements[i + 1];
 
         numberOfElements--;
-    }
-
-    public SetOfInts unionWith(final SetOfInts anotherSet) {
-        final SetOfInts union = new SetOfInts();
-
-        for (int i = 0; i != numberOfElements; i++)
-            union.add(elements[i]);
-
-        for (int i = 0; i != anotherSet.numberOfElements; i++)
-            union.add(anotherSet.elements[i]);
-
-        return union;
-    }
-
-    public SetOfInts intersectionWith(final SetOfInts anotherSet) {
-        final SetOfInts intersection = new SetOfInts();
-
-        for (int i = 0; i != numberOfElements; i++)
-            if (anotherSet.contains(elements[i]))
-                intersection.add(elements[i]);
-
-        return intersection;
-    }
-
-    public SetOfInts minus(SetOfInts anotherSet) {
-        final SetOfInts subtraction = new SetOfInts();
-
-        for (int i = 0; i != numberOfElements; i++)
-            if (!anotherSet.contains(elements[i]))
-                subtraction.add(elements[i]);
-
-        return subtraction;
     }
 
     private int indexOf(final int element) {
@@ -115,8 +133,6 @@ public class SetOfInts {
         // elements = Arrays.copyOf(elements, newCapacity);
     }
 
-    // Returns a string representation of the set, consisting of all its
-    // elements, separated by commas, placed within brackets:
     @Override
     public String toString() {
         String result = "{";

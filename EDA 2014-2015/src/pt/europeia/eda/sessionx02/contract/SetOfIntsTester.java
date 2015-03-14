@@ -12,6 +12,8 @@ public class SetOfIntsTester {
 
         out.println("set is " + set);
         out.println("set.cardinality() is " + set.cardinality());
+        out.println("set.getElements() is "
+                + Arrays.toString(set.getElements()));
 
         out.println("Adding 10 to set.");
         set.add(10);
@@ -54,7 +56,7 @@ public class SetOfIntsTester {
         out.println("set.contains(10) is " + set.contains(10));
         out.println("set.contains(20) is " + set.contains(20));
         out.println("set.contains(30) is " + set.contains(30));
-        
+
         set.add(40);
         set.add(50);
         set.add(60);
@@ -70,8 +72,7 @@ public class SetOfIntsTester {
 
         out.println("anotherSet is " + anotherSet);
 
-//        final SetOfInts union = set.unionWith(anotherSet);
-        final SetOfInts union = SetOfInts.unionOf(set, anotherSet);
+        final SetOfInts union = set.unionWith(anotherSet);
 
         out.println("union is " + union);
 
@@ -79,19 +80,24 @@ public class SetOfIntsTester {
 
         out.println("intersection is " + intersection);
 
-//        out.println("set minus anotherSet is " + set.minus(anotherSet));
-//        out.println("anotherSet minus set is " + anotherSet.minus(set));
-//
-//        out.println("union contains intersection is "
-//                + union.contains(intersection));
-//        out.println("intersection contains union is "
-//                + intersection.contains(union));
-//        out.println("set contains anotherSet is " + set.contains(anotherSet));
-//        out.println("anotherSet contains set is " + anotherSet.contains(set));
-//        out.println("set contains intersection is "
-//                + set.contains(intersection));
-//        out.println("anotherSet contains intersection is "
-//                + anotherSet.contains(intersection));        
+        out.println("set minus anotherSet is " + set.minus(anotherSet));
+        out.println("anotherSet minus set is " + anotherSet.minus(set));
+
+        out.println("union contains intersection is "
+                + union.contains(intersection));
+        out.println("intersection contains union is "
+                + intersection.contains(union));
+        out.println("set contains anotherSet is " + set.contains(anotherSet));
+        out.println("anotherSet contains set is " + anotherSet.contains(set));
+        out.println("set contains intersection is "
+                + set.contains(intersection));
+        out.println("anotherSet contains intersection is "
+                + anotherSet.contains(intersection));
+        
+//        for (int element : set)
+//            out.println(element);
+        for (int element : set.getElements())
+            out.println(element);
     }
 
 }
