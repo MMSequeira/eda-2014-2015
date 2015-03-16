@@ -2,6 +2,8 @@ package pt.europeia.eda.sessionx02.contract;
 
 import java.util.Arrays;
 
+// This version of the class includes assertions used to check operation
+// postconditions and instance invariants.
 public class SetOfInts {
 
     private static final int initialCapacity = 1;
@@ -13,12 +15,16 @@ public class SetOfInts {
         elements = new int[initialCapacity];
         numberOfElements = 0;
 
+        // The invariant of this new class instance is checked right after (or
+        // rather, at the end of) construction:
         checkInvariant();
     }
 
     public boolean isEmpty() {
+        // The invariant of this set is checked before (or rather, at the
+        // beginning of) the execution of each non-modifying method:
         checkInvariant();
-        
+
         return cardinality() == 0;
     }
 
@@ -41,12 +47,17 @@ public class SetOfInts {
     }
 
     public boolean contains(final SetOfInts anotherSet) {
+        // The preconditions of the operation must be checked and an exception
+        // must be thrown to signal their violation:
         if (anotherSet == null)
             throw new NullPointerException("anotherSet cannot be null.");
 
         checkInvariant();
+        // The invariant of the other set is also checked here, though only
+        // because the code below is not accessing it only though its public
+        // interface:
         anotherSet.checkInvariant();
-        
+
         for (int i = 0; i != anotherSet.numberOfElements; i++)
             if (!contains(anotherSet.elements[i]))
                 return false;
@@ -68,6 +79,14 @@ public class SetOfInts {
         for (int i = 0; i != anotherSet.numberOfElements; i++)
             union.add(anotherSet.elements[i]);
 
+        // These assertions check part of the postconditions of this operation.
+        // Notice that violations of preconditions lead to run time exceptions
+        // while the violation of postconditions lead to assertion failures and
+        // the throwing of AssertionError. The former can be caught and dealt
+        // with by the calling code, while the latter usually should not. Also
+        // notice that assertion are not checked by default. You must enable
+        // assertion checking by calling the Java virtual machine with the -ea
+        // option.
         assert union.contains(this) : "Union must contain each set.";
         assert union.contains(anotherSet) : "Union must contain each set.";
 
@@ -140,6 +159,8 @@ public class SetOfInts {
 
         numberOfElements++;
 
+        // The invariant of this set is checked after (or rather, at the
+        // end of) the execution of each modifying method:
         checkInvariant();
 
         assert contains(newElement) : "After adding an element the set must contain it.";
@@ -162,6 +183,8 @@ public class SetOfInts {
         assert !contains(element) : "After removing an element the set must not contain it.";
     }
 
+    // A helper method used to check whether the set has repeated elements
+    // (which it shouldn't):
     private boolean hasRepeatedElements() {
         for (int i = 0; i < numberOfElements - 1; i++)
             for (int j = i + 1; j != numberOfElements; j++)
@@ -189,6 +212,11 @@ public class SetOfInts {
         // elements = Arrays.copyOf(elements, newCapacity);
     }
 
+    // The helper method that checks the invariant of this set instance. The
+    // invariant usually consists of a conjunction of conditions, which are
+    // usually separately asserted. This makes the errors thrown more specific
+    // and informative. Remember that assertions are only checked if the Java
+    // virtual machine if called with the -ea option:
     private void checkInvariant() {
         assert elements != null : "The elements reference cannot be null.";
         assert 0 <= numberOfElements : "Number of elements cannot be negative.";
