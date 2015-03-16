@@ -122,6 +122,11 @@ public class SetOfInts {
         return subtraction;
     }
 
+    public static SetOfInts subtractionOf(final SetOfInts oneSet,
+            final SetOfInts anotherSet) {
+        return oneSet.minus(anotherSet);
+    }
+
     public void add(final int newElement) {
         checkInvariant();
 
