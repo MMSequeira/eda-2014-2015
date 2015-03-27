@@ -23,19 +23,6 @@ public class QueueOfDoubles {
         return size;
     }
 
-    private void resizeTo(final int newCapacity) {
-        assert newCapacity >= size : "Attempt to reduce array capacity below the current queue size.";
-
-        final double[] copyOfItems = new double[newCapacity];
-
-        for (int i = 0; i < size; i++)
-            copyOfItems[i] = items[(first + i) % items.length];
-
-        items = copyOfItems;
-        first = 0;
-        last = size - 1;
-    }
-
     public void enqueue(final double newItem) {
         if (size == items.length)
             resizeTo(2 * items.length);
@@ -74,27 +61,64 @@ public class QueueOfDoubles {
         return items[first];
     }
 
+    private void resizeTo(final int newCapacity) {
+        assert newCapacity >= size : "Attempt to reduce array capacity below the current queue size.";
+
+        final double[] copyOfItems = new double[newCapacity];
+
+        for (int i = 0; i < size; i++)
+            copyOfItems[i] = items[(first + i) % items.length];
+
+        items = copyOfItems;
+        first = 0;
+        last = size - 1;
+    }
+
+    @Override
+    public String toString() {
+        String result = "[";
+        
+        for (int i = 0; i < size; i++) {
+            if (i != 0)
+                result += ", ";
+            result += items[(first + i) % items.length];
+        }
+        
+        return result + "]";
+    }
+    
     public static void main(final String[] arguments) {
         final QueueOfDoubles numbers = new QueueOfDoubles();
+        
+        out.println("Queue is " + numbers + ".");
+        
+        out.println("Enqueueing eight numbers:");
+        for (double number = 10.0; number <= 80.0; number += 10.0) {
+            numbers.enqueue(number);
+            out.println("\tEnqueued " + number + ".");
+        }
+        
+        out.println("Queue is " + numbers + ".");
 
-        numbers.enqueue(10.0);
-        numbers.enqueue(20.0);
-        numbers.enqueue(30.0);
-        numbers.enqueue(40.0);
-        numbers.enqueue(50.0);
-        numbers.enqueue(60.0);
+        out.println("Dequeueing four numbers:");
+        for (int i = 0; i != 4; i ++)
+            out.println("\tDequeued " + numbers.dequeue() + ".");
+        
+        out.println("Queue is " + numbers + ".");
 
-        out.println("Dequeueing");
+        out.println("Enqueueing another ten numbers:");
+        for (double number = 90.0; number <= 180.0; number += 10.0) {
+            numbers.enqueue(number);
+            out.println("\tEnqueued " + number + ".");
+        }
+
+        out.println("Queue is " + numbers + ".");
+
+        out.println("Dequeueing all numbers:");
         while (!numbers.isEmpty())
-            out.println("\t" + numbers.dequeue());
+            out.println("\tDequeued " + numbers.dequeue() + ".");
 
-        numbers.enqueue(70.0);
-        numbers.enqueue(80.0);
-        numbers.enqueue(90.0);
-
-        out.println("Dequeueing");
-        while (!numbers.isEmpty())
-            out.println("\t" + numbers.dequeue());
+        out.println("Queue is " + numbers + ".");
     }
 
 }
