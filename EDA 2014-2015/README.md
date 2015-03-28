@@ -5,8 +5,8 @@ Copyright 2015, Manuel Menezes de Sequeira.
 The code is in part a derivative work of the code which accompanies the
 textbook
 
-    Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne, Addison-Wesley
-    Professional, 2011, ISBN 0-321-57351-X. http://algs4.cs.princeton.edu
+> Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne, Addison-Wesley
+> Professional, 2011, ISBN 0-321-57351-X. http://algs4.cs.princeton.edu
     
 Copyright 2015, Robert Sedgewick and Kevin Wayne.
  
@@ -24,4 +24,4 @@ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with
-this program.  If not, see <http://www.gnu.org/licenses/>.
+this program.  If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
