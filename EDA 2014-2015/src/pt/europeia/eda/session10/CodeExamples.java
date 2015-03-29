@@ -4,10 +4,10 @@ import static java.lang.System.out;
 
 public class CodeExamples {
 
-    public static int factorialOf(final int n) {
-        // if (n == 0)
+    public static int factorialOf(final int number) {
+        // if (number == 0)
         // return 1;
-        return n * factorialOf(n - 1);
+        return number * factorialOf(number - 1);
     }
 
     public static void main(final String[] arguments) {

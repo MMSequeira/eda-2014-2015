@@ -125,12 +125,12 @@ public class SetOfInts {
     // This improved version of the code takes advantage of the fact that the
     // order of the elements in the set is not considered relevant.
     public void remove(final int element) {
-        int i = indexOf(element);
+        final int indexOfElement = indexOf(element);
 
-        if (i == numberOfElements)
+        if (indexOfElement == numberOfElements)
             return;
 
-        elements[i] = elements[numberOfElements - 1];
+        elements[indexOfElement] = elements[numberOfElements - 1];
 
         numberOfElements--;
     }

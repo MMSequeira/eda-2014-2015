@@ -169,12 +169,12 @@ public class SetOfInts {
     public void remove(final int element) {
         checkInvariant();
 
-        int i = indexOf(element);
+        final int indexOfElement = indexOf(element);
 
-        if (i == numberOfElements)
+        if (indexOfElement == numberOfElements)
             return;
 
-        elements[i] = elements[numberOfElements - 1];
+        elements[indexOfElement] = elements[numberOfElements - 1];
 
         numberOfElements--;
 

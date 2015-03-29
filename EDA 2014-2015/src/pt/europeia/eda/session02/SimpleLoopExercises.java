@@ -60,16 +60,16 @@ public class SimpleLoopExercises {
         final int numberToSearch = inputScanner.nextInt();
 
         // Search:
-        int i = 0;
-        while (i != numbers.length && numbers[i] != numberToSearch)
-            i++;
+        int index = 0;
+        while (index != numbers.length && numbers[index] != numberToSearch)
+            index++;
 
         // If the loop ended because we exhausted the array, the number was not
         // found:
-        if (i == numbers.length)
+        if (index == numbers.length)
             out.println("Not found!");
         else
-            out.println("Found in position " + (i + 1));
+            out.println("Found in position " + (index + 1));
     }
 
 }

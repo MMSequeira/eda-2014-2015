@@ -74,16 +74,16 @@ public class SetOfInts {
     public void remove(final int element) {
         // Obtain the index of the element in the array (or numberOfElements, if
         // it is not a member of the set):
-        int i = indexOf(element);
+        int indexOfElement = indexOf(element);
 
         // If the element is not a member of the set, do nothing:
-        if (i == numberOfElements)
+        if (indexOfElement == numberOfElements)
             return;
 
         // Fill the gap of the removed element by copying each succeeding
         // element one position to the left in the array:
-        for (; i < numberOfElements - 1; i++)
-            elements[i] = elements[i + 1];
+        for (; indexOfElement < numberOfElements - 1; indexOfElement++)
+            elements[indexOfElement] = elements[indexOfElement + 1];
 
         // Decrement the number of elements:
         numberOfElements--;

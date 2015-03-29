@@ -6,11 +6,11 @@ import java.math.BigInteger;
 
 public class BigIntegerTester {
     
-    public static BigInteger factorialOf(BigInteger n) {
+    public static BigInteger factorialOf(BigInteger number) {
         BigInteger factorial = BigInteger.valueOf(1);
-        while (n != BigInteger.ZERO) {
-            factorial = factorial.multiply(n);
-            n = n.subtract(BigInteger.ONE);
+        while (number != BigInteger.ZERO) {
+            factorial = factorial.multiply(number);
+            number = number.subtract(BigInteger.ONE);
         }
         return factorial;
     }
