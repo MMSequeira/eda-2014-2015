@@ -8,7 +8,8 @@ import java.util.NoSuchElementException;
 
 public class LinkedQueue<Item> implements Iterable<Item> {
 
-    private Node first, last;
+    private Node first;
+    private Node last;
 
     private class Node {
         Item item;
