@@ -32,7 +32,6 @@ public class CodeExamples {
         out.println("sum = " + sum);
 
         int i = 0;
-        int j = 0;
 
         // Increment using sum and assignment:
         i = i + 1;
@@ -48,6 +47,8 @@ public class CodeExamples {
         i++;
 
         out.println("i = " + i);
+
+        int j = 0;
 
         // Decrement using sum and assignment:
         j = j - 1;
