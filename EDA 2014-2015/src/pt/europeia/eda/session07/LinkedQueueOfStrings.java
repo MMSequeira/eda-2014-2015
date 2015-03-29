@@ -59,7 +59,7 @@ public class LinkedQueueOfStrings {
 
 }
 
-/*************************************************************************
+/*
  * Copyright 2015, Robert Sedgewick and Kevin Wayne.
  * 
  * Copyright 2015, Manuel Menezes de Sequeira.
@@ -84,4 +84,4 @@ public class LinkedQueueOfStrings {
  * Any errors found in this code should be assumed to be the responsibility of
  * the author of the modifications to the original code (viz. Manuel Menezes de
  * Sequeira).
- *************************************************************************/
+ */
