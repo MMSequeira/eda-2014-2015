@@ -1,7 +1,11 @@
 package pt.europeia.eda.piazza.week01;
 
 import static java.lang.System.out;
-import static pt.europeia.eda.piazza.week01.IntArrays.*;
+import static pt.europeia.eda.piazza.week01.IntArrays.fusionOf;
+import static pt.europeia.eda.piazza.week01.IntArrays.isNonDecreasing;
+import static pt.europeia.eda.piazza.week01.IntArrays.maximumSpanBetweenEqualItemsOf;
+import static pt.europeia.eda.piazza.week01.IntArrays.reverse;
+import static pt.europeia.eda.piazza.week01.IntArrays.thereAreDuplicatesIn;
 
 import java.util.Arrays;
 

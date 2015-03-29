@@ -1,7 +1,10 @@
 package pt.europeia.eda.javaslides.presentation05;
 
 import static java.lang.System.out;
-import static pt.europeia.eda.javaslides.presentation05.IntArrayUtilities.*;
+import static pt.europeia.eda.javaslides.presentation05.IntArrayUtilities.maximumOf;
+import static pt.europeia.eda.javaslides.presentation05.IntArrayUtilities.minimumOf;
+import static pt.europeia.eda.javaslides.presentation05.IntArrayUtilities.sortedCopyOf;
+import static pt.europeia.eda.javaslides.presentation05.IntArrayUtilities.thereAreDuplicatesIn;
 
 public class IntArrayUtilitiesTester {
 
