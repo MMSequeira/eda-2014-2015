@@ -1,8 +1,8 @@
 package pt.europeia.eda.session10;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.ConcurrentModificationException;
 
 public class Stack<Item> implements Iterable<Item> {
 

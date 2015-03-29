@@ -1,8 +1,8 @@
 package pt.europeia.eda.session10;
 
+import edu.princeton.cs.introcs.StdRandom;
 import pt.europeia.eda.Histogram;
 import pt.europeia.eda.session09.LinkedQueue;
-import edu.princeton.cs.introcs.StdRandom;
 
 public class MM1QueueSimulation {
 

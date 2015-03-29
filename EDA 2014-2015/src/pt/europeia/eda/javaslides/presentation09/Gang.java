@@ -1,7 +1,7 @@
 package pt.europeia.eda.javaslides.presentation09;
 
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Gang {
 
