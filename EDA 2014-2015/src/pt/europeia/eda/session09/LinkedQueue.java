@@ -1,10 +1,10 @@
 package pt.europeia.eda.session09;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
 import static pt.europeia.eda.Tools.in;
 import static pt.europeia.eda.Tools.out;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class LinkedQueue<Item> implements Iterable<Item> {
 

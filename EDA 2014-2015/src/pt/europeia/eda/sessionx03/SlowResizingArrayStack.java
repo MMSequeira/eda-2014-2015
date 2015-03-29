@@ -1,11 +1,11 @@
 package pt.europeia.eda.sessionx03;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.ConcurrentModificationException;
-
 import static java.lang.System.nanoTime;
 import static java.lang.System.out;
+
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class SlowResizingArrayStack<Item> implements Iterable<Item> {
 

@@ -1,9 +1,9 @@
 package pt.europeia.eda.java_slides.presentation12;
 
+import static java.lang.System.out;
+
 import java.time.LocalDate;
 import java.time.Month;
-
-import static java.lang.System.out;
 
 public class CarTester {
 

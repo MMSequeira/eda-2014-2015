@@ -1,8 +1,8 @@
 package pt.europeia.eda.piazza.week03;
 
-import java.util.NoSuchElementException;
-
 import static java.lang.System.out;
+
+import java.util.NoSuchElementException;
 
 public class QueueOfDoubles {
 

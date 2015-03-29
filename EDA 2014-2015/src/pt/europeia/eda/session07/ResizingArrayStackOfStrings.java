@@ -1,9 +1,9 @@
 package pt.europeia.eda.session07;
 
-import java.util.NoSuchElementException;
-
 import static pt.europeia.eda.Tools.in;
 import static pt.europeia.eda.Tools.out;
+
+import java.util.NoSuchElementException;
 
 public class ResizingArrayStackOfStrings {
 

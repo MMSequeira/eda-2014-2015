@@ -1,8 +1,8 @@
 package pt.europeia.eda.piazza.week01;
 
-import java.util.ArrayList;
-
 import static java.lang.System.out;
+
+import java.util.ArrayList;
 
 public class Numbers {
 

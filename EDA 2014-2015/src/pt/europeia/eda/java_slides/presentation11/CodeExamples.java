@@ -1,8 +1,8 @@
 package pt.europeia.eda.java_slides.presentation11;
 
-import java.util.Scanner;
-
 import static java.lang.System.out;
+
+import java.util.Scanner;
 
 public class CodeExamples {
 

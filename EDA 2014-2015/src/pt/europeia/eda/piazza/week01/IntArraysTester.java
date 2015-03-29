@@ -1,9 +1,9 @@
 package pt.europeia.eda.piazza.week01;
 
-import java.util.Arrays;
-
 import static java.lang.System.out;
 import static pt.europeia.eda.piazza.week01.IntArrays.*;
+
+import java.util.Arrays;
 
 public class IntArraysTester {
 

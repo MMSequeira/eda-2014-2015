@@ -1,8 +1,8 @@
 package pt.europeia.eda.java_slides.presentation11;
 
-import java.math.BigInteger;
-
 import static java.lang.System.out;
+
+import java.math.BigInteger;
 
 public class BigIntegerTester {
     

@@ -1,8 +1,8 @@
 package pt.europeia.eda.java_slides.presentation13;
 
-import java.util.ArrayList;
-
 import static java.lang.System.out;
+
+import java.util.ArrayList;
 
 public class BusinessTester {
 

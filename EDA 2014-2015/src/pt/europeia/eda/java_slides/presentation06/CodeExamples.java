@@ -1,8 +1,8 @@
 package pt.europeia.eda.java_slides.presentation06;
 
-import java.util.Arrays;
-
 import static java.lang.System.out;
+
+import java.util.Arrays;
 
 public class CodeExamples {
 
