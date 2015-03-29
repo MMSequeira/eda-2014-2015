@@ -15,10 +15,10 @@ public class Histogram {
         draw.setCanvasSize(500, 500);
     }
 
-    public void addDataPoint(final int i) {
-        frequencies[i]++;
-        if (frequencies[i] > maximumFrequency)
-            maximumFrequency = frequencies[i];
+    public void addDataPoint(final int bin) {
+        frequencies[bin]++;
+        if (frequencies[bin] > maximumFrequency)
+            maximumFrequency = frequencies[bin];
         draw();
     }
 
