@@ -27,7 +27,7 @@ public class Numbers {
 
         for (int divisor = 3; divisor <= Math.sqrt(number); divisor += 2)
             if (number % divisor == 0)
-            return false;
+                return false;
 
         if (number == 1)
             return false;

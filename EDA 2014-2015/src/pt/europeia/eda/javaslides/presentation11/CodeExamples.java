@@ -14,14 +14,14 @@ public class CodeExamples {
         testIntegers();
         testSwitch();
     }
-    
+
     public static void testSwitch() {
         final Scanner inputScanner = new Scanner(System.in);
-        
+
         out.print("Introduza um comando: ");
         final String commandText = inputScanner.nextLine();
         final Command command = Command.valueOf(commandText);
-        
+
         switch (command) {
         case SAVE:
             out.println("Perform save.");
@@ -33,10 +33,10 @@ public class CodeExamples {
             out.println("Perform exit.");
             break;
         }
-        
+
         inputScanner.close();
     }
-    
+
     public static void testIntegers() {
         final int minimum = Integer.MIN_VALUE;
         final int maximum = Integer.MAX_VALUE;
