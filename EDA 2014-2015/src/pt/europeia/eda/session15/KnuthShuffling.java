@@ -2,9 +2,9 @@ package pt.europeia.eda.session15;
 
 import static java.lang.System.out;
 
-import java.util.Arrays;
-
 import edu.princeton.cs.introcs.StdRandom;
+
+import java.util.Arrays;
 
 public class KnuthShuffling {
 
