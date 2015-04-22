@@ -15,8 +15,8 @@ public final class Merge {
                 .getComponentType(), values.length);
 
         sort(values, auxiliary, 0, values.length - 1);
-        
-        assert isIncreasing(values);
+
+        assert isIncreasing(values) : "Array should be increasing after sorting.";
     }
 
     private static <Item extends Comparable<? super Item>> void sort(
@@ -29,15 +29,15 @@ public final class Merge {
 
         sort(values, auxiliary, first, middle);
         sort(values, auxiliary, middle + 1, last);
-        
+
         merge(values, auxiliary, first, middle, last);
     }
 
     private static <Item extends Comparable<? super Item>> void merge(
             final Item[] values, final Item[] auxiliary, final int first,
             final int middle, final int last) {
-        assert isIncreasing(values, first, middle);
-        assert isIncreasing(values, middle + 1, last);
+        assert isIncreasing(values, first, middle) : "Can only merge increasing segments.";
+        assert isIncreasing(values, middle + 1, last) : "Can only merge increasing segments.";
 
         for (int i = first; i <= last; i++)
             auxiliary[i] = values[i];
@@ -59,7 +59,7 @@ public final class Merge {
                 i++;
             }
 
-        assert isIncreasing(values, first, last);
+        assert isIncreasing(values, first, last) : "Merged segment should be increasing.";
     }
 
     private static <Value extends Comparable<? super Value>> boolean isLess(
@@ -72,7 +72,7 @@ public final class Merge {
         for (int i = 1; i < values.length; i++)
             if (isLess(values[i], values[i - 1]))
                 return false;
-        
+
         return true;
     }
 
