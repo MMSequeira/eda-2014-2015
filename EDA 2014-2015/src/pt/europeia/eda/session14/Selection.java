@@ -1,6 +1,10 @@
 package pt.europeia.eda.session14;
 
-public class Selection {
+public final class Selection {
+
+    private Selection() {
+        throw new RuntimeException("Attempt to instantiate package-class");
+    }
 
     public static <Item extends Comparable<? super Item>> void sort(
             final Item[] values) {

@@ -5,7 +5,11 @@ import static java.lang.System.out;
 // Example of an instrumented binary search method counting the number of
 // comparisons involving at least on array item (three-way comparisons are
 // implemented as two chained two-way comparisons):
-public class InstrumentedBinarySearch {
+public final class InstrumentedBinarySearch {
+    
+    private InstrumentedBinarySearch() {
+        throw new RuntimeException("Attempt to instantiate package-class");
+    }
 
     // Instrumentation code:
     private static int numberOfTwoWayComparisons = 0;
