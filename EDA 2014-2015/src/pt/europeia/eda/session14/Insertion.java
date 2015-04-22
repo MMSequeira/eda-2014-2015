@@ -21,10 +21,9 @@ public final class Insertion {
         return first.compareTo(second) < 0;
     }
 
-    private static <Item extends Comparable<? super Item>> void swap(
-            final Item[] values, final int firstPosition,
+    private static void swap(final Object[] values, final int firstPosition,
             final int secondPosition) {
-        final Item temporary = values[firstPosition];
+        final Object temporary = values[firstPosition];
         values[firstPosition] = values[secondPosition];
         values[secondPosition] = temporary;
     }
