@@ -15,7 +15,7 @@ public class CodeExamples {
         testSelectionOperator(20, 25);
         testMaximumOf();
     }
-    
+
     public static void testAssignements() {
         final int value = 10;
 
@@ -107,10 +107,10 @@ public class CodeExamples {
 
         out.println("values = " + Arrays.toString(values));
     }
-    
+
     public static void testWhileLoop() {
         // Declare, construct, and explicitly initialize an array of doubles:
-        final double[] grades = {14.0, 16.0, 18.0};
+        final double[] grades = { 14.0, 16.0, 18.0 };
 
         double sumOfGrades = 0.0;
         int i = 0;
@@ -124,7 +124,7 @@ public class CodeExamples {
 
     public static void testForLoop() {
         // Declare, construct, and explicitly initialize an array of doubles:
-        final double[] grades = {14.0, 16.0, 18.0};
+        final double[] grades = { 14.0, 16.0, 18.0 };
 
         double sumOfGrades = 0.0;
         for (int i = 0; i != grades.length; i++) {
@@ -136,7 +136,7 @@ public class CodeExamples {
 
     public static void testForEachLoop() {
         // Declare, construct, and explicitly initialize an array of doubles:
-        final double[] grades = {14.0, 16.0, 18.0};
+        final double[] grades = { 14.0, 16.0, 18.0 };
 
         double sumOfGrades = 0.0;
         for (double grade : grades) {
@@ -146,9 +146,9 @@ public class CodeExamples {
         out.println("sumOfGrades = " + sumOfGrades);
     }
 
-    public static void testSelectionOperator(final int m, final int n) {        
+    public static void testSelectionOperator(final int m, final int n) {
         int maximum;
-        
+
         if (m < n)
             maximum = n;
         else
@@ -162,18 +162,19 @@ public class CodeExamples {
     }
 
     public static void testMaximumOf() {
-        final int[] sizes = {10, 4, 5, 20, 0, 6};
-        
+        final int[] sizes = { 10, 4, 5, 20, 0, 6 };
+
         final int maximumSize = maximumOf(sizes);
-        
+
         out.println("maximumSize = " + maximumSize);
     }
-    
+
     /**
      * Returns maximum of the items in array.
      *
-     * @param array  array whose maximum will be returned.
-     * @returns              the maximum of the items in array.
+     * @param array
+     *            array whose maximum will be returned.
+     * @returns the maximum of the items in array.
      * @pre array must have at least one item
      */
     public static int maximumOf(final int[] array) {
@@ -187,3 +188,19 @@ public class CodeExamples {
     }
 
 }
+
+/*
+ * Copyright 2015, Manuel Menezes de Sequeira.
+ * 
+ * This code is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This code is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this code. If not, see http://www.gnu.org/licenses.
+ */

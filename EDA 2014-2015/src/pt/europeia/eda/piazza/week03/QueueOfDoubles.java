@@ -77,33 +77,33 @@ public class QueueOfDoubles {
     @Override
     public String toString() {
         String result = "[";
-        
+
         for (int i = 0; i < size; i++) {
             if (i != 0)
                 result += ", ";
             result += items[(first + i) % items.length];
         }
-        
+
         return result + "]";
     }
-    
+
     public static void main(final String[] arguments) {
         final QueueOfDoubles numbers = new QueueOfDoubles();
-        
+
         out.println("Queue is " + numbers + ".");
-        
+
         out.println("Enqueueing eight numbers:");
         for (double number = 10.0; number <= 80.0; number += 10.0) {
             numbers.enqueue(number);
             out.println("\tEnqueued " + number + ".");
         }
-        
+
         out.println("Queue is " + numbers + ".");
 
         out.println("Dequeueing four numbers:");
-        for (int i = 0; i != 4; i ++)
+        for (int i = 0; i != 4; i++)
             out.println("\tDequeued " + numbers.dequeue() + ".");
-        
+
         out.println("Queue is " + numbers + ".");
 
         out.println("Enqueueing another ten numbers:");
@@ -122,3 +122,19 @@ public class QueueOfDoubles {
     }
 
 }
+
+/*
+ * Copyright 2015, Manuel Menezes de Sequeira.
+ * 
+ * This code is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This code is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this code. If not, see http://www.gnu.org/licenses.
+ */
