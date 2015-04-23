@@ -113,7 +113,6 @@
     </module>
     <module name="Indentation">
       <property name="caseIndent" value="0"/>
-      <property name="arrayInitIndent" value="2"/>
     </module>
     <module name="AbbreviationAsWordInName">
       <property name="allowedAbbreviationLength" value="1"/>
