@@ -44,6 +44,7 @@ public final class Merge {
 
         int i = first;
         int j = middle + 1;
+        
         for (int k = first; k <= last; k++)
             if (i > middle) {
                 values[k] = auxiliary[j];
@@ -69,11 +70,7 @@ public final class Merge {
 
     private static <Item extends Comparable<? super Item>> boolean isIncreasing(
             final Item[] values) {
-        for (int i = 1; i < values.length; i++)
-            if (isLess(values[i], values[i - 1]))
-                return false;
-
-        return true;
+        return isIncreasing(values, 0, values.length - 1);
     }
 
     private static <Item extends Comparable<? super Item>> boolean isIncreasing(
