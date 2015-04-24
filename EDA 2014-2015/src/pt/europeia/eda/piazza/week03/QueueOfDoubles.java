@@ -62,7 +62,8 @@ public class QueueOfDoubles {
     }
 
     private void resizeTo(final int newCapacity) {
-        assert newCapacity >= size : "Attempt to reduce array capacity below the current queue size.";
+        assert newCapacity >= size :
+            "Attempt to reduce array capacity below the current queue size.";
 
         final double[] copyOfItems = new double[newCapacity];
 

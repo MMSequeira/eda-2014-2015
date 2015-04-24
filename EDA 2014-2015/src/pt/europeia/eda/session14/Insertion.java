@@ -8,12 +8,15 @@ public final class Insertion {
 
     public static <Item extends Comparable<? super Item>> void sort(
             final Item[] values) {
-        for (int numberOfSortedItems = 1; numberOfSortedItems < values.length; numberOfSortedItems++)
+        for (int numberOfSortedItems = 1;
+             numberOfSortedItems < values.length;
+             numberOfSortedItems++)
             for (int i = numberOfSortedItems; i != 0
                     && isLess(values[i], values[i - 1]); i--)
                 swap(values, i - 1, i);
 
-        assert isIncreasing(values) : "Array should be increasing after sorting.";
+        assert isIncreasing(values) :
+            "Array should be increasing after sorting.";
     }
 
     private static <Value extends Comparable<? super Value>> boolean isLess(

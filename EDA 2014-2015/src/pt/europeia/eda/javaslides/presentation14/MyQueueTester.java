@@ -3,9 +3,11 @@ package pt.europeia.eda.javaslides.presentation14;
 public class MyQueueTester {
 
     public static void main(final String[] arguments) {
+        // TODO Remove this annotation once tests are complete.
+        @SuppressWarnings("unused")
         Queue<Customer> customerQueue = new CustomerQueue();
 
-        // …
+        // TODO Complete Queue tester.
     }
 
 }

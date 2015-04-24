@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class CodeExamples {
 
+    // Suppress warnings due to intended errors:
+    @SuppressWarnings("unused")
     public static void main(final String[] arguments) {
         // Generic type arguments cannot be primitive types. Uncommend the code
         // below and check the compilation error:

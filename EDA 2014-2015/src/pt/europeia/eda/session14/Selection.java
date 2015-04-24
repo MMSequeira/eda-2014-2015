@@ -8,7 +8,9 @@ public final class Selection {
 
     public static <Item extends Comparable<? super Item>> void sort(
             final Item[] values) {
-        for (int numberOfSortedItems = 0; numberOfSortedItems < values.length - 1; numberOfSortedItems++) {
+        for (int numberOfSortedItems = 0;
+             numberOfSortedItems < values.length - 1;
+             numberOfSortedItems++) {
             int indexOfMinimum = numberOfSortedItems;
 
             for (int i = indexOfMinimum + 1; i != values.length; i++)
@@ -18,7 +20,8 @@ public final class Selection {
             swap(values, numberOfSortedItems, indexOfMinimum);
         }
 
-        assert isIncreasing(values) : "Array should be increasing after sorting.";
+        assert isIncreasing(values) :
+            "Array should be increasing after sorting.";
     }
 
     private static <Value extends Comparable<? super Value>> boolean isLess(

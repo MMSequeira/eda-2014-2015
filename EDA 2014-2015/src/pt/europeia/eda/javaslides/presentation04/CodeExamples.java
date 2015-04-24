@@ -4,6 +4,8 @@ import static java.lang.System.out;
 
 public class CodeExamples {
 
+    // Suppress warnings due to this code not being intended to run:
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         // Declaration of variable with initialization:
         int i = 1;

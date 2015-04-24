@@ -128,7 +128,8 @@ public class InstrumentedResizingArrayStack<Item> implements Iterable<Item> {
     }
 
     public static void main(final String[] arguments) {
-        final InstrumentedResizingArrayStack<Double> numbers = new InstrumentedResizingArrayStack<Double>();
+        final InstrumentedResizingArrayStack<Double> numbers =
+                new InstrumentedResizingArrayStack<Double>();
 
         final long numberOfPushes = 1025;
 

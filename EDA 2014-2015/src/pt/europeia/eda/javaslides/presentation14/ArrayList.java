@@ -1,6 +1,8 @@
 package pt.europeia.eda.javaslides.presentation14;
 
 public class ArrayList<Item> {
+    // TODO Remove this annotation once class is complete.
+    @SuppressWarnings("unused")
     private Item[] items;
 
     public void addFirst(final Item item) {

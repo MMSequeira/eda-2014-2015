@@ -2,6 +2,8 @@ package pt.europeia.eda.session05;
 
 import java.util.ArrayList;
 
+//suppresses warning due to commented out declaration of numbers:
+@SuppressWarnings("unused")
 public class CodeExamples {
 
     // ArrayLists are generic classes, thus their parameters cannot be

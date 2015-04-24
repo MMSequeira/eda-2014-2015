@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class SetOfInts {
 
-    private int[] items;
-    private int cardinality;
+    private int[] items = new int[1];
+    private int cardinality = 0;
 
     // …
 

@@ -4,6 +4,8 @@ import static java.lang.System.out;
 
 public class NullAccessTester {
 
+    // Suppresses warning do to intended error: 
+    @SuppressWarnings("null")
     public static void main(String[] args) {
         final Person luke = null;
 

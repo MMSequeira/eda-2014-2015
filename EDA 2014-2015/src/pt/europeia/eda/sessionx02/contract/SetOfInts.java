@@ -111,8 +111,10 @@ public class SetOfInts {
             if (anotherSet.contains(elements[i]))
                 intersection.add(elements[i]);
 
-        assert this.contains(intersection) : "Both sets must their intersection.";
-        assert anotherSet.contains(intersection) : "Both sets must their intersection.";
+        assert this.contains(intersection) :
+            "Both sets must their intersection.";
+        assert anotherSet.contains(intersection) :
+            "Both sets must their intersection.";
 
         return intersection;
     }
@@ -135,8 +137,10 @@ public class SetOfInts {
             if (!anotherSet.contains(elements[i]))
                 subtraction.add(elements[i]);
 
-        assert subtraction.intersectionWith(anotherSet).isEmpty() : "Subtraction has no common elements with subtracted set.";
-        assert this.contains(subtraction) : "Original set must contain subtraction.";
+        assert subtraction.intersectionWith(anotherSet).isEmpty() :
+            "Subtraction has no common elements with subtracted set.";
+        assert this.contains(subtraction) :
+            "Original set must contain subtraction.";
 
         return subtraction;
     }
@@ -163,7 +167,8 @@ public class SetOfInts {
         // end of) the execution of each modifying method:
         checkInvariant();
 
-        assert contains(newElement) : "After adding an element the set must contain it.";
+        assert contains(newElement) :
+            "After adding an element the set must contain it.";
     }
 
     public void remove(final int element) {
@@ -180,7 +185,8 @@ public class SetOfInts {
 
         checkInvariant();
 
-        assert !contains(element) : "After removing an element the set must not contain it.";
+        assert !contains(element) :
+            "After removing an element the set must not contain it.";
     }
 
     // A helper method used to check whether the set has repeated elements
@@ -220,8 +226,10 @@ public class SetOfInts {
     private void checkInvariant() {
         assert elements != null : "The elements reference cannot be null.";
         assert 0 <= numberOfElements : "Number of elements cannot be negative.";
-        assert numberOfElements <= elements.length : "Number of elements must not be larger than the array capacity.";
-        assert !hasRepeatedElements() : "The set cannot contain repeated elements.";
+        assert numberOfElements <= elements.length :
+            "Number of elements must not be larger than the array capacity.";
+        assert !hasRepeatedElements() :
+            "The set cannot contain repeated elements.";
     }
 
     @Override
