@@ -2,10 +2,11 @@ package pt.europeia.eda.piazza.week01;
 
 public class IntArrays {
 
-    public static void swap(final int[] numbers, final int i, final int j) {
-        final int temporary = numbers[i];
-        numbers[i] = numbers[j];
-        numbers[j] = temporary;
+    public static void swap(final int[] numbers, final int firstPosition,
+            final int secondPosition) {
+        final int temporary = numbers[firstPosition];
+        numbers[firstPosition] = numbers[secondPosition];
+        numbers[secondPosition] = temporary;
     }
 
     public static void reverse(final int[] numbers) {
