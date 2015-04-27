@@ -17,11 +17,11 @@ public class StudentTester {
 
         // OptimizedMerge.sort(students);
 
-        OptimizedMerge.sort(students, Student.BY_NAME);
+        OptimizedMerge.sort(students, Student.comparatorByName);
 
         out.println("students: " + Arrays.toString(students));
 
-        OptimizedMerge.sort(students, Student.BY_SECTION);
+        OptimizedMerge.sort(students, Student.comparatorBySection);
 
         out.println("students: " + Arrays.toString(students));
     }
