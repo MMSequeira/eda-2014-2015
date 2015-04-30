@@ -7,23 +7,82 @@ import java.util.Arrays;
 public class StudentTester {
 
     public static void main(final String[] arguments) {
-        final Student[] students = { new Student("Furia", 1),
+        final Student[] originalStudents = { new Student("Furia", 1),
             new Student("Fox", 3), new Student("Battle", 4),
             new Student("Rohde", 2), new Student("Kanaga", 3),
             new Student("Andrews", 3), new Student("Gazsi", 4),
             new Student("Chen", 3) };
 
-        out.println("students: " + Arrays.toString(students));
+        // Tests using selection sort, which is unstable:
+        out.println("Selection sort of students:");
 
-        // OptimizedMerge.sort(students);
+        // Get copy of original, unsorted students:
+        Student[] students = originalStudents.clone();
 
+        // Show students:
+        out.println("\tOriginal students:");
+        out.println("\t\t" + Arrays.toString(students));
+
+        // The regular, natural order sort cannot be called, since students
+        // don't have a natural order, i.e., they do not implement the
+        // Comparable interface:
+        // Selection.sort(students);
+
+        // First sort by decreasing order of name:
+        Selection.sort(students, Student.reverseComparatorByName);
+        out.println("\tStudents by decreasing name:");
+        out.println("\t\t" + Arrays.toString(students));
+
+        // Now sort by increasing order of name:
+        Selection.sort(students, Student.comparatorByName);
+        out.println("\tStudents by increasing name:");
+        out.println("\t\t" + Arrays.toString(students));
+
+        // Sort by increasing order of section:
+        Selection.sort(students, Student.comparatorBySection);
+        // Notice that students, for each section, are no longer sorted by name,
+        // since selection sort is unstable:
+        out.println("\tStudents by increasing section:");
+        out.println("\t\t" + Arrays.toString(students));
+
+        // Sort by increasing order of section and, for students with the same
+        // section, sort by name:
+        Selection.sort(students, Student.comparatorBySectionThenByName);
+        out.println("\tStudents by increasing section and by increasing name:");
+        out.println("\t\t" + Arrays.toString(students));
+
+        // Tests using merge sort, which is stable:
+        out.println("Merge sort of students:");
+
+        // Get copy of original, unsorted students:
+        students = originalStudents.clone();
+
+        // Show students:
+        out.println("\tOriginal students:");
+        out.println("\t\t" + Arrays.toString(students));
+
+        // First sort by decreasing order of name:
+        OptimizedMerge.sort(students, Student.reverseComparatorByName);
+        out.println("\tStudents by decreasing name:");
+        out.println("\t\t" + Arrays.toString(students));
+
+        // Now sort by increasing order of name:
         OptimizedMerge.sort(students, Student.comparatorByName);
+        out.println("\tStudents by increasing name:");
+        out.println("\t\t" + Arrays.toString(students));
 
-        out.println("students: " + Arrays.toString(students));
-
+        // Sort by increasing order of section:
         OptimizedMerge.sort(students, Student.comparatorBySection);
+        // Notice that students, for each section, are still sorted by name,
+        // since merge sort is stable:
+        out.println("\tStudents by increasing section:");
+        out.println("\t\t" + Arrays.toString(students));
 
-        out.println("students: " + Arrays.toString(students));
+        // Sort by increasing order of section and, for students with the same
+        // section, sort by name:
+        OptimizedMerge.sort(students, Student.comparatorBySectionThenByName);
+        out.println("\tStudents by increasing section and by increasing name:");
+        out.println("\t\t" + Arrays.toString(students));
     }
 
 }

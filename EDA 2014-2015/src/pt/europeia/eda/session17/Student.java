@@ -5,6 +5,8 @@ import java.util.Comparator;
 public class Student {
     public static final Comparator<Student> comparatorByName = new ComparatorByName();
     public static final Comparator<Student> comparatorBySection = new ComparatorBySection();
+    public static final Comparator<Student> comparatorBySectionThenByName = new ComparatorBySectionThenByName();
+    public static final Comparator<Student> reverseComparatorByName = new ReverseComparatorByName();
 
     private String name;
     private int section;
@@ -30,4 +32,20 @@ public class Student {
             return first.section - second.section;
         }
     }
+
+    private static class ComparatorBySectionThenByName implements
+            Comparator<Student> {
+        public int compare(final Student first, final Student second) {
+            if (first.section != second.section)
+                return first.section - second.section;
+            return first.name.compareTo(second.name);
+        }
+    }
+
+    private static class ReverseComparatorByName implements Comparator<Student> {
+        public int compare(final Student first, final Student second) {
+            return second.name.compareTo(first.name);
+        }
+    }
+
 }
