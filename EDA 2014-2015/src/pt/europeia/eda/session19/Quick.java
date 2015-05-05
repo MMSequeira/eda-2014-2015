@@ -83,8 +83,8 @@ public final class Quick {
         return values[first];
     }
 
-    private static <Item extends Comparable<? super Item>> boolean isLess(
-            final Item first, final Item second) {
+    private static <Value extends Comparable<? super Value>> boolean isLess(
+            final Value first, final Value second) {
         return first.compareTo(second) < 0;
     }
 
