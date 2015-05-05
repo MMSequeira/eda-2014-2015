@@ -1,20 +1,21 @@
 package pt.europeia.eda.session19;
 
-import edu.princeton.cs.introcs.StdIn;
+import edu.princeton.cs.introcs.In;
 import edu.princeton.cs.introcs.StdOut;
 import edu.princeton.cs.introcs.StdRandom;
 
 public final class Quick {
 
     private Quick() {
+        throw new RuntimeException("Attempt to instantiate package-class");
     }
 
     public static <Item extends Comparable<? super Item>> void sort(
             final Item[] values) {
         StdRandom.shuffle(values);
-        
+
         sort(values, 0, values.length - 1);
-        
+
         assert isIncreasing(values) : "Array should be increasing after sorting.";
     }
 
@@ -27,7 +28,7 @@ public final class Quick {
         sort(values, first, j - 1);
         sort(values, j + 1, last);
 
-        assert isIncreasing(values, first, last);
+        assert isIncreasing(values, first, last) : "Array segment should be increasing after sorting.";
     }
 
     private static <Item extends Comparable<? super Item>> int partition(
@@ -58,7 +59,8 @@ public final class Quick {
         return j;
     }
 
-    public static <Item extends Comparable<? super Item>> Item select(final Item[] values, final int k) {
+    public static <Item extends Comparable<? super Item>> Item select(
+            final Item[] values, final int k) {
         if (k < 0 || values.length <= k)
             throw new IndexOutOfBoundsException(
                     "Selected element out of bounds");
@@ -69,7 +71,7 @@ public final class Quick {
         int last = values.length - 1;
 
         while (last > first) {
-            int j = partition(values, first, last);
+            final int j = partition(values, first, last);
             if (j > k)
                 last = j - 1;
             else if (j < k)
@@ -81,23 +83,24 @@ public final class Quick {
         return values[first];
     }
 
-    private static <Item extends Comparable<? super Item>> boolean isLess(final Item first,
-            final Item second) {
+    private static <Item extends Comparable<? super Item>> boolean isLess(
+            final Item first, final Item second) {
         return first.compareTo(second) < 0;
     }
 
     private static void swap(final Object[] values, final int i, final int j) {
-        Object temporary = values[i];
+        final Object temporary = values[i];
         values[i] = values[j];
         values[j] = temporary;
     }
 
-    private static <Item extends Comparable<? super Item>> boolean isIncreasing(final Item[] values) {
+    private static <Item extends Comparable<? super Item>> boolean isIncreasing(
+            final Item[] values) {
         return isIncreasing(values, 0, values.length - 1);
     }
 
-    private static <Item extends Comparable<? super Item>> boolean isIncreasing(final Item[] a, final int first,
-            final int last) {
+    private static <Item extends Comparable<? super Item>> boolean isIncreasing(
+            final Item[] a, final int first, final int last) {
         for (int i = first + 1; i <= last; i++)
             if (isLess(a[i], a[i - 1]))
                 return false;
@@ -110,7 +113,8 @@ public final class Quick {
     }
 
     public static void main(final String[] arguments) {
-        String[] words = StdIn.readAllStrings();
+        final In in = new In(arguments[0]);
+        final String[] words = in.readAllStrings();
         Quick.sort(words);
         show(words);
 
@@ -118,24 +122,36 @@ public final class Quick {
 
         StdOut.println();
         for (int i = 0; i != words.length; i++) {
-            String ith = Quick.select(words, i);
+            final String ith = Quick.select(words, i);
             StdOut.println(ith);
         }
     }
 
-    private static void show(final Double[] values) {
-        for (Double value : values)
-            StdOut.printf("%.16f\n", value);
-    }
-
-    public static void mainNew(final String[] arguments) {
-        double[] doubleValues = StdIn.readAllDoubles();
-        Double[] values = new Double[doubleValues.length];
-        for (int i = 0; i != values.length; i++)
-            values[i] = doubleValues[i];
-        
-        Quick.sort(values);
-        show(values);
-    }
-
 }
+
+/*
+ * Copyright 2015, Robert Sedgewick and Kevin Wayne.
+ * 
+ * Copyright 2015, Manuel Menezes de Sequeira.
+ * 
+ * This file is a derivative work of the code which accompanies the textbook
+ * 
+ * Algorithms, 4th edition by Robert Sedgewick and Kevin Wayne, Addison-Wesley
+ * Professional, 2011, ISBN 0-321-57351-X. http://algs4.cs.princeton.edu
+ * 
+ * This code is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This code is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this code. If not, see http://www.gnu.org/licenses.
+ * 
+ * Any errors found in this code should be assumed to be the responsibility of
+ * the author of the modifications to the original code (viz. Manuel Menezes de
+ * Sequeira).
+ */
