@@ -45,40 +45,51 @@ public final class OptimizedQuick {
 
         int i = first;
         int j = last + 1;
-        int p = first;
-        int q = last + 1;
+        int p = first + 1;
+        int q = last;
         
+        final Item pivot = values[first];
+
         while (true) {
-            final Item pivot = values[first];
             do
                 i++;
             while (isLess(values[i], pivot) && i != last);
+            
             do
                 j--;
             while (isLess(pivot, values[j]) && j != first);
+            
+            if (i == j && isEqual(values[i], pivot)) {
+                swap(values, p, i);
+                p++;
+            }
+
             if (i >= j)
                 break;
+            
             swap(values, i, j);
+            
             if (isEqual(values[i], pivot)) {
-                p++;
                 swap(values, p, i);
+                p++;
             }
             if (isEqual(values[j], pivot)) {
-                q--;
                 swap(values, q, j);
+                q--;
             }
         }
-        swap(values, first, j);
+        
         i = j + 1;
-        j = j - 1;
-        for (int k = first + 1; k <= p; k++) {
+        
+        for (int k = first; k < p; k++) {
             swap(values, k, j);
             j--;
         }
-        for (int k = last; k >= q; k--) {
+        for (int k = last; k > q; k--) {
             swap(values, k, i);
             i++;
         }
+        
         sort(values, first, j);
         sort(values, i, last);
     }

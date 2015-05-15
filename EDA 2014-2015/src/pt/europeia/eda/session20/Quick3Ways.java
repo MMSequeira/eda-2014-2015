@@ -27,9 +27,9 @@ public final class Quick3Ways {
         int lowest = first;
         int greatest = last;
         
-        final Item pivot = values[first];
+        int i = first + 1;
         
-        int i = first;
+        final Item pivot = values[first];
         
         while (i <= greatest) { 
             final int comparison = values[i].compareTo(pivot);
