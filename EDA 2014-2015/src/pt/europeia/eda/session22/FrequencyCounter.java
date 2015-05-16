@@ -9,7 +9,8 @@ public class FrequencyCounter {
         final int minimumLength = Integer.parseInt(arguments[0]);
         final In in = new In(arguments[1]);
 
-        final BinarySearchOrderedTable<String, Integer> frequencies = new BinarySearchOrderedTable<String, Integer>();
+//        final BinarySearchOrderedTable<String, Integer> frequencies = new BinarySearchOrderedTable<String, Integer>();
+        final SequentialSearchOrderedTable<String, Integer> frequencies = new SequentialSearchOrderedTable<String, Integer>();
         int numberOfDistinctWords = 0;
         int numberOfWords = 0;
         while (!in.isEmpty()) {
