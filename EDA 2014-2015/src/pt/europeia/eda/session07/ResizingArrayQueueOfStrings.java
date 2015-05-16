@@ -26,7 +26,7 @@ public class ResizingArrayQueueOfStrings {
 
     public void enqueue(final String item) {
         if (size == items.length)
-            resizeTo(2 * items.length);
+            changeCapacityTo(2 * items.length);
 
         last++;
 
@@ -53,12 +53,12 @@ public class ResizingArrayQueueOfStrings {
             first = 0;
 
         if (size > 0 && size == items.length / 4)
-            resizeTo(items.length / 2);
+            changeCapacityTo(items.length / 2);
 
         return item;
     }
 
-    private void resizeTo(final int newCapacity) {
+    private void changeCapacityTo(final int newCapacity) {
         final String[] copyOfItems = new String[newCapacity];
 
         for (int i = 0; i != size; i++)

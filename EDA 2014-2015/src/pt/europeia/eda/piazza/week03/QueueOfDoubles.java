@@ -25,7 +25,7 @@ public class QueueOfDoubles {
 
     public void enqueue(final double newItem) {
         if (size == items.length)
-            resizeTo(2 * items.length);
+            changeCapacityTo(2 * items.length);
 
         last++;
         if (last == items.length)
@@ -49,7 +49,7 @@ public class QueueOfDoubles {
             first = 0;
 
         if (size > 0 && size == items.length / 4)
-            resizeTo(items.length / 2);
+            changeCapacityTo(items.length / 2);
 
         return item;
     }
@@ -61,7 +61,7 @@ public class QueueOfDoubles {
         return items[first];
     }
 
-    private void resizeTo(final int newCapacity) {
+    private void changeCapacityTo(final int newCapacity) {
         assert newCapacity >= size :
             "Attempt to reduce array capacity below the current queue size.";
 

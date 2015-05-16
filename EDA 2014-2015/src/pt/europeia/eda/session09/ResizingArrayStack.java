@@ -21,7 +21,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
 
     public void push(final Item item) {
         if (size == items.length)
-            resizeTo(2 * items.length);
+            changeCapacityTo(2 * items.length);
         items[size] = item;
         size++;
     }
@@ -36,12 +36,12 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
         items[size] = null;
 
         if (size > 0 && size == items.length / 4)
-            resizeTo(items.length / 2);
+            changeCapacityTo(items.length / 2);
 
         return item;
     }
 
-    private void resizeTo(final int newCapacity) {
+    private void changeCapacityTo(final int newCapacity) {
         @SuppressWarnings("unchecked")
         final Item[] copyOfItems = (Item[]) new Object[newCapacity];
 
