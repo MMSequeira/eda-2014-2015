@@ -1,7 +1,5 @@
 package pt.europeia.eda.session22;
 
-import static java.lang.System.out;
-
 public class TableTester {
 
     public static void main(final String[] arguments) {
