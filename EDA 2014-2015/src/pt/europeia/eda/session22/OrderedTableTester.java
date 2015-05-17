@@ -1,7 +1,5 @@
 package pt.europeia.eda.session22;
 
-import static java.lang.System.out;
-
 public class OrderedTableTester {
 
     public static void main(final String[] arguments) {
@@ -32,7 +30,6 @@ public class OrderedTableTester {
             assert table.valueFor(key).intValue() == values[i];
             assert table.rankOf(key) == i;
             assert table.keyWithRank(i).equals(key);
-            out.println(key);
             i++;
         }
 
@@ -69,7 +66,6 @@ public class OrderedTableTester {
             assert table.valueFor(key).intValue() == values[i];
             assert table.rankOf(key) == i + 2;
             assert table.keyWithRank(i + 2).equals(key);
-            out.println(key);
             i++;
         }
 
