@@ -371,7 +371,7 @@ public class BstOrderedTable<Key extends Comparable<? super Key>, Value> {
     }
 
     private void enqueueKeysInRange(final Queue<Key> keys, final Key low,
-            Key high, final Node<Key, Value> tree) {
+            final Key high, final Node<Key, Value> tree) {
         if (tree == null)
             return;
 
