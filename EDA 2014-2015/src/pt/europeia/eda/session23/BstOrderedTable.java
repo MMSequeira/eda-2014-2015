@@ -6,9 +6,6 @@ import edu.princeton.cs.introcs.StdOut;
 
 import java.util.NoSuchElementException;
 
-//Ver ordem dos métodos. Igual a BinarySearch...?
-//        Ordenar. rever. Fazer testes.
-
 public class BstOrderedTable<Key extends Comparable<? super Key>, Value> {
 
     private Node<Key, Value> root;
