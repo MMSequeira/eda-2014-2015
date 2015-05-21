@@ -14,14 +14,13 @@ public class BstOrderedTable<Key extends Comparable<? super Key>, Value> {
 
         private final Key key;
         private Value value;
-        private Node<Key, Value> left;
-        private Node<Key, Value> right;
-        private int size;
+        private Node<Key, Value> left = null;
+        private Node<Key, Value> right = null;
+        private int size = 1;
 
-        public Node(final Key key, final Value value, final int size) {
+        public Node(final Key key, final Value value) {
             this.key = key;
             this.value = value;
-            this.size = size;
         }
 
     }
@@ -236,7 +235,7 @@ public class BstOrderedTable<Key extends Comparable<? super Key>, Value> {
     private Node<Key, Value> putIn(final Key key, final Value value,
             final Node<Key, Value> tree) {
         if (tree == null)
-            return new Node<Key, Value>(key, value, 1);
+            return new Node<Key, Value>(key, value);
 
         final int comparison = key.compareTo(tree.key);
         
