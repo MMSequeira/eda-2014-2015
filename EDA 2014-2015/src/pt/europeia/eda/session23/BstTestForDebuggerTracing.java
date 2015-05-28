@@ -22,6 +22,8 @@ public class BstTestForDebuggerTracing {
         table.put("W", "9");
 
         out.println(table.size());
+        
+        out.println(table.keys());
     }
 
 }
