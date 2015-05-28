@@ -33,6 +33,22 @@ public class TableTester {
         assert !table.contains("Zero");
         assert table.size() == 9;
         assert !table.isEmpty();
+        
+        table.delete("Zero");
+        table.delete("One");
+        table.delete("Two");
+        table.delete("Three");
+        table.delete("Four");
+        table.delete("Five");
+        table.delete("Six");
+        table.delete("Seven");
+        table.delete("Eight");
+        table.delete("Nine");
+        table.delete("Ten");
+        table.delete("Ten");
+
+        assert table.size() == 0;
+        assert table.isEmpty();
     }
 
 }
