@@ -1,10 +1,10 @@
 package pt.europeia.eda.session22;
 
-import java.util.NoSuchElementException;
-
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
+
+import java.util.NoSuchElementException;
 
 public class SequentialSearchOrderedTable<Key extends Comparable<? super Key>, Value> {
 
@@ -88,14 +88,37 @@ public class SequentialSearchOrderedTable<Key extends Comparable<? super Key>, V
         checkInvariant();
     }
 
+    // Iterative version (see commented out recursive version below):
     public void delete(final Key key) {
         checkInvariant();
 
-        first = deleteFrom(first, key);
+        if (isEmpty())
+            return;
+
+        if (key.equals(first.key)) {
+            size--;
+            first = first.next;
+        } else if (first.next != null) {
+            Node<Key, Value> node = first;
+            while (node.next != null && !key.equals(node.next.key))
+                node = node.next;
+            if (node.next != null) {
+                size--;
+                node.next = node.next.next;
+            }
+        }
 
         checkInvariant();
     }
-
+    
+//    public void delete(final Key key) {
+//        checkInvariant();
+//
+//        first = deleteFrom(first, key);
+//
+//        checkInvariant();
+//    }
+//
     public int rankOf(final Key key) {
         int rank = 0;
         for (Node<Key, Value> node = first; node != null; node = node.next)
@@ -229,19 +252,19 @@ public class SequentialSearchOrderedTable<Key extends Comparable<? super Key>, V
         checkInvariant();
     }
 
-    private Node<Key, Value> deleteFrom(final Node<Key, Value> node, final Key key) {
-        if (node == null)
-            return null;
-
-        if (key.equals(node.key)) {
-            size--;
-            return node.next;
-        }
-
-        node.next = deleteFrom(node.next, key);
-
-        return node;
-    }
+//    private Node<Key, Value> deleteFrom(final Node<Key, Value> node, final Key key) {
+//        if (node == null)
+//            return null;
+//
+//        if (key.equals(node.key)) {
+//            size--;
+//            return node.next;
+//        }
+//
+//        node.next = deleteFrom(node.next, key);
+//
+//        return node;
+//    }
 
     private Key[] keysArray() {
         @SuppressWarnings("unchecked")

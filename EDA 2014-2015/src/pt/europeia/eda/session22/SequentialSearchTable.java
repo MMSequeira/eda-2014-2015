@@ -90,28 +90,51 @@ public class SequentialSearchTable<Key, Value> {
         checkInvariant();
     }
 
+    // Iterative version (see commented out recursive version below):
     public void delete(final Key key) {
         checkInvariant();
 
-        first = deleteFrom(first, key);
+        if (isEmpty())
+            return;
+
+        if (key.equals(first.key)) {
+            size--;
+            first = first.next;
+        } else if (first.next != null) {
+            Node<Key, Value> node = first;
+            while (node.next != null && !key.equals(node.next.key))
+                node = node.next;
+            if (node.next != null) {
+                size--;
+                node.next = node.next.next;
+            }
+        }
 
         checkInvariant();
     }
 
-    private Node<Key, Value> deleteFrom(final Node<Key, Value> node, final Key key) {
-        if (node == null)
-            return null;
-        
-        if (key.equals(node.key)) {
-            size--;
-            return node.next;
-        }
-        
-        node.next = deleteFrom(node.next, key);
-        
-        return node;
-    }
-
+//    public void delete(final Key key) {
+//        checkInvariant();
+//
+//        first = deleteFrom(first, key);
+//
+//        checkInvariant();
+//    }
+//
+//    private Node<Key, Value> deleteFrom(final Node<Key, Value> node, final Key key) {
+//        if (node == null)
+//            return null;
+//        
+//        if (key.equals(node.key)) {
+//            size--;
+//            return node.next;
+//        }
+//        
+//        node.next = deleteFrom(node.next, key);
+//        
+//        return node;
+//    }
+//
     private void checkInvariant() {
         assert isSizeConsistent() : "Table array capacities not consistent with size.";
         assert keysAreNonNull() : "Table contains null keys.";
