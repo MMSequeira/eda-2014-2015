@@ -34,18 +34,18 @@ public class TableTester {
         assert table.size() == 9;
         assert !table.isEmpty();
         
-        table.delete("Zero");
         table.delete("One");
-        table.delete("Two");
-        table.delete("Three");
-        table.delete("Four");
+        table.delete("Ten");
         table.delete("Five");
+        table.delete("Two");
         table.delete("Six");
-        table.delete("Seven");
-        table.delete("Eight");
+        table.delete("Zero");
         table.delete("Nine");
         table.delete("Ten");
-        table.delete("Ten");
+        table.delete("Seven");
+        table.delete("Three");
+        table.delete("Four");
+        table.delete("Eight");
 
         assert table.size() == 0;
         assert table.isEmpty();
