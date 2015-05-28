@@ -100,7 +100,7 @@ public class SequentialSearchTable<Key, Value> {
         if (key.equals(first.key)) {
             size--;
             first = first.next;
-        } else if (first.next != null) {
+        } else {
             Node<Key, Value> node = first;
             while (node.next != null && !key.equals(node.next.key))
                 node = node.next;
