@@ -78,7 +78,7 @@ public final class Quick {
         values[secondPosition] = temporary;
     }
 
-    /*
+    /*-
      * N = 7
      *   0  1  2  3  4  5  6
      * [10  4  5  6  7  8  9]

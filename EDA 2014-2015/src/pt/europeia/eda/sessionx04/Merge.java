@@ -65,14 +65,24 @@ public final class Merge {
         return first < second;
     }
 
-    /*
-     * N = 8 = 2³ = 2ⁿ with n = lg N = 3 [1 2 3 4 5 6 7 8] / \ [1 2 3 4] [5 6 7
-     * 8] / \ / \ [1 2] [3 4] [5 6] [7 8] / \ / \ / \ / \ [1] [2] [3] [4] [5]
-     * [6] [7] [8] \C/ \C/ \C/ \C/ = 4 = 2² comparisons [1 2] [3 4] [5 6] [7 8]
-     * \ C / \ C / = 2 = 2¹ comparisons [1 2 3 4] [5 6 7 8] \ C / = 2 = 2⁰
-     * comparisons [1 2 3 4 5 6 7 8]
-     * 
-     * n-1 NC: 4 + 2 + 1 = ∑ 2ⁱ = 2ⁿ - 1 = N - 1 i=0
+    /*-
+     * N = 8 = 2³ = 2ⁿ with n = lg N = 3
+     * [1   2   3   4   5   6   7   8]
+     *         /             \
+     * [1   2   3   4] [5   6   7   8]
+     *     /     \         /     \
+     * [1   2] [3   4] [5   6] [7   8]
+     *   / \     / \     / \     / \
+     * [1] [2] [3] [4] [5] [6] [7] [8]
+     *   \C/     \C/     \C/     \C/  = 4 = 2² comparisons
+     * [1   2] [3   4] [5   6] [7   8]
+     *     \  C  /         \  C  /    = 2 = 2¹ comparisons
+     * [1   2   3   4] [5   6   7   8]
+     *         \      C      /        = 1 = 2⁰ comparisons
+     * [1   2   3   4   5   6   7   8]
+     *                n-1
+     * NC: 4 + 2 + 1 = ∑ 2ⁱ = 2ⁿ - 1 = N - 1
+     *                i=0
      */
     public static void main(final String[] arguments) {
         final double[] values = { 1, 2, 3, 4, 5, 6, 7, 8 };
