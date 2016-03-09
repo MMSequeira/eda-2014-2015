@@ -115,6 +115,7 @@ public final class Quick {
         final double[] values = { 70, 50, 30, 10, 20, 40, 60 };
 
         out.println("values before sorting    = " + Arrays.toString(values));
+        
         sort(values);
 
         out.println("Number of partitions: " + numberOfPartitions);
